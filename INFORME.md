@@ -1,4 +1,4 @@
-# Informe de Actividades  
+# Informe
 ## Repositorio: CelciusFarengeiEntrenamiento
 
 ### Introducción
