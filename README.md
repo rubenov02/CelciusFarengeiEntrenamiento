@@ -1,50 +1,110 @@
-# CelciusFarengeiEntrenamiento
+# 🧠 Entrenamiento de Red Neuronal: Celsius a Fahrenheit
 
-## Descripción
+## 1. Descripción General
 
-Este repositorio contiene un ejemplo didáctico de entrenamiento de una red neuronal para aprender la conversión entre grados Celsius y Fahrenheit. El proyecto utiliza Python y scikit-learn (MLPRegressor) para demostrar cómo un modelo puede capturar la relación matemática entre ambas escalas de temperatura, así como presentar el proceso de preparación de datos, entrenamiento, evaluación y análisis de resultados.
+Este repositorio contiene un ejemplo didáctico completo sobre el entrenamiento de una red neuronal para aprender la conversión entre grados Celsius y Fahrenheit. Utiliza Python y scikit-learn (`MLPRegressor`) para demostrar cómo un modelo de aprendizaje automático puede capturar relaciones matemáticas subyacentes con alta precisión.
 
-## Archivos principales
+El proyecto está diseñado para poder  comprendan todo el flujo de trabajo de un proyecto de IA/ML:
+- Generación y preparación de datos sintéticos.
+- Escalado de características con `StandardScaler`.
+- Separación de datos de entrenamiento y prueba (80/20).
+- Entrenamiento del modelo perceptrón multicapa utilizando `Pipeline`.
+- Evaluación con métricas estándar (MAE, MSE, RMSE, R²) y visualizaciones gráficas.
+- Sección avanzada: exploración de funciones de activación y extracción matemática de pesos.
 
-- `CelciusFareneheitSklearn.ipynb`: Notebook con todo el flujo de trabajo, incluyendo explicación teórica, preparación de datos sintéticos, entrenamiento de la red, evaluación de métricas (MAE, RMSE, R2), visualización de resultados y conclusiones.
+## 2. Estructura del Notebook
 
-## Características
+El notebook `CelciusFareneheitSklearn.ipynb` está organizado en las siguientes secciones:
 
-- Generación de un dataset sintético de pares Celsius-Fahrenheit.
-- Separación de datos para entrenamiento y validación.
-- Implementación de una red neuronal con scikit-learn usando `MLPRegressor`.
-- Evaluación con métricas de regresión estándar.
-- Gráficas para comparar valores reales vs predicciones, curva de pérdida y distribución de errores.
-- Análisis y visualización de los coeficientes y bias aprendidos.
-- Notebook explicativo y ordenado para propósitos educativos.
+### Reporte de entrenamiento
+- Importación de librerías y configuración del entorno gráfico con Seaborn.
+- Generación de un conjunto de datos sintético de **120 registros** en el rango de **-40°C a 120°C**.
 
-## Requisitos
+### 1. Datos y preparación
+- Partición de datos con `train_test_split` (test_size=0.2, random_state=42).
+- Entrenamiento del modelo `MLPRegressor` dentro de un `Pipeline` con `StandardScaler`.
+- Configuración: `hidden_layer_sizes=(8,)`, `activation='identity'`, `solver='adam'`, `learning_rate_init=0.01`, `max_iter=1500`.
+- **Resultado:** 560 iteraciones, pérdida final: 0.001541.
 
-- Python 3.x
-- Las siguientes librerías de Python:
-  - numpy
-  - pandas
-  - matplotlib
-  - seaborn
-  - scikit-learn
-  - jupyter
+### 2. Entrenamiento del modelo
+- Predicciones sobre el conjunto de prueba.
+- Tabla comparativa de valores reales vs. predichos con errores.
 
-Puedes instalar las dependencias con:
+### 3. Evaluación y resultados
+- Gráfica de **Predicción vs Real** para evaluación visual.
+- Curva de pérdida por iteración.
+- Distribución de errores (histograma con KDE).
+- **Métricas obtenidas:**
+
+| Métrica | Valor |
+|---------|-------|
+| MAE     | 0.048142 |
+| MSE     | 0.003241 |
+| RMSE    | 0.056927 |
+| **R²**  | **0.999999** |
+
+### 4. Oportunidades de Mejora (Sección Avanzada)
+1. **Ruido en los datos:** Se agrega ruido gaussiano para simular datos provenientes de sensores reales.
+2. **Exploración de Activaciones:** Comparación entre `identity`, `relu` y `tanh`:
+   - `identity`: MAE=3.84, R²=0.9966, 556 iteraciones.
+   - `relu`: MAE=3.96, R²=0.9964, 1500 iteraciones.
+   - `tanh`: MAE=26.85, R²=0.6827, 1500 iteraciones.
+3. **Extracción Matemática de Pesos:** Se demuestra que la red neuronal aprende valores cercanos a los coeficientes $1.8$ y $32$ de la fórmula $F = C \times 1.8 + 32$.
+
+## 3. Estructura de Archivos
+
+| Archivo | Descripción |
+|---------|-------------|
+| `CelciusFareneheitSklearn.ipynb` | Notebook principal con todo el flujo de entrenamiento y evaluación. |
+| `comparacion_activaciones.png` | Gráfica comparativa de funciones de activación (identity, relu, tanh). |
+| `loss_curves.png` | Curvas de pérdida del entrenamiento. |
+| `run_improvements.py` | Script auxiliar para ejecutar mejoras avanzadas sobre el modelo. |
+| `update_notebook.py` | Script auxiliar para actualizar el contenido del notebook. |
+| `fix_notebook.py` | Script auxiliar para corregir el notebook. |
+| `.gitignore` | Archivos y carpetas excluidos del control de versiones. |
+
+## 4. Tecnologías y Requisitos
+
+- **Python 3.11+**
+- Bibliotecas necesarias:
+  - `numpy` — Operaciones matriciales y generación de datos sintéticos.
+  - `pandas` — Estructuración de resultados en DataFrames.
+  - `matplotlib` y `seaborn` — Gráficas de comparación, curvas de pérdida y distribuciones.
+  - `scikit-learn` — Algoritmo `MLPRegressor`, `StandardScaler`, `Pipeline` y partición de datos.
+  - `ipython` — Visualización enriquecida de tablas en el notebook.
+
+### Instalación
 
 ```bash
-pip install numpy pandas matplotlib seaborn scikit-learn notebook
+pip install numpy pandas matplotlib seaborn scikit-learn ipython notebook
 ```
 
-## Uso
+## 5. Ejecución del Proyecto
 
-1. Descarga o clona este repositorio.
-2. Abre el notebook `CelciusFareneheitSklearn.ipynb` en Jupyter Notebook o Google Colab.
-3. Ejecuta las celdas en orden para visualizar todo el proceso de entrenamiento y análisis de resultados.
+Para explorar y ejecutar este proyecto:
+1. Clona este repositorio o descarga los archivos.
+2. Instala las dependencias con `pip install` (ver sección anterior).
+3. Abre la terminal en el directorio del proyecto y ejecuta:
+   ```bash
+   jupyter notebook CelciusFareneheitSklearn.ipynb
+   ```
+4. Ejecuta las celdas secuencialmente para observar:
+   - La generación del conjunto de datos y su exploración.
+   - El entrenamiento del modelo y las métricas de evaluación.
+   - Las gráficas de predicción vs. realidad, curva de pérdida y distribución de errores.
+   - La sección avanzada con comparación de activaciones y extracción de la fórmula aprendida.
 
-## Resultados
+## 6. Resultados y Conclusión
 
-El modelo logra aprender la conversión Celsius-Fahrenheit con altos niveles de precisión (R2 cercano a 1 y error muy bajo), comprobando que una red neuronal puede captar relaciones matemáticas simples. Se incluye una sección de gráficas y análisis de errores para enriquecer la presentación profesional de los resultados.
+El modelo `MLPRegressor` con activación `identity` y una capa oculta de 8 neuronas logra aproximar **casi a la perfección** (R² = 0.999999) la fórmula $F = C \times 1.8 + 32$ con datos limpios, convergiendo en solo **560 iteraciones**.
+
+En la sección avanzada, al introducir ruido gaussiano en los datos, se demuestra que:
+- La activación `identity` sigue siendo la más eficiente (R² = 0.9966, convergencia rápida).
+- `relu` obtiene resultados similares pero requiere las 1500 iteraciones máximas.
+- `tanh` no logra capturar adecuadamente la relación lineal (R² = 0.6827).
+
+Esto confirma la capacidad de las redes neuronales para actuar como modelos de regresión lineal escalables, incluso ante datos imperfectos.
 
 ## Autor
 
-Repositorio creado por [rubenov02](https://github.com/rubenov02) para fines educativos, demostrando el ciclo básico de entrenamiento y evaluación de una red neuronal en problemas sencillos de regresión.
+Repositorio creado por [rubenov02](https://github.com/rubenov02) para fines educativos, demostrando el ciclo básico y avanzado de entrenamiento y evaluación de una red neuronal en problemas de regresión.

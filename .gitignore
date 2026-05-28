@@ -18,3 +18,8 @@ ENV/
 
 # Archivos de configuración de Jupyter
 *.jpynb_checkpoints
+
+# Scripts auxiliares (no forman parte del proyecto)
+update_notebook.py
+run_improvements.py
+fix_notebook.py
