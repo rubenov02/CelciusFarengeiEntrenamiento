@@ -1,0 +1,56 @@
+# Informe: Conversión entre Celsius y Fahrenheit utilizando Machine Learning
+
+## 1. Introducción
+
+El presente informe describe el desarrollo de un proyecto académico orientado a la conversión de temperaturas entre grados Celsius y grados Fahrenheit, empleando técnicas de aprendizaje automático. El objetivo es demostrar la aplicabilidad de herramientas modernas de machine learning incluso en problemas de naturaleza determinista y bien establecidos, resaltando tanto la metodología como la validación teórica y práctica de los resultados obtenidos.
+
+## 2. Metodología
+
+El flujo de trabajo se estructuró en las siguientes etapas:
+
+### a. Generación de Datos
+
+Se creó un conjunto de datos sintéticos, conformado por pares de valores de temperatura en grados Celsius y su conversión exacta a Fahrenheit, utilizando la relación:
+> F = C × 9/5 + 32
+
+### b. Preparación del Entorno
+
+Para el desarrollo, se utilizó el lenguaje Python y se documentó cada proceso en un Jupyter Notebook, asegurando claridad y reproducibilidad. Las principales librerías empleadas fueron: pandas, numpy, matplotlib y scikit-learn.
+
+### c. Análisis Exploratorio de Datos
+
+Se llevó a cabo un análisis visual y estadístico de las variables involucradas. La representación gráfica permitió confirmar la linealidad de la relación física, facilitando la selección del modelo de regresión más adecuado.
+
+### d. Modelado Mediante Machine Learning
+
+Se abordó el problema como una regresión lineal supervisada. El dataset se dividió en conjuntos de entrenamiento y prueba para evaluar la capacidad de generalización del modelo. Se empleó el estimador LinearRegression de scikit-learn.
+
+### e. Evaluación y Validación
+
+La precisión del modelo se evaluó utilizando métricas como el coeficiente de determinación (R²) y el error cuadrático medio (MSE). Adicionalmente, se compararon visualmente las predicciones frente a los valores reales.
+
+### f. Uso Práctico del Modelo
+
+Finalmente, se probó el modelo con datos no vistos previamente, corroborando que las predicciones coinciden con la fórmula teórica de conversión.
+
+## 3. Resultados
+
+El modelo de regresión lineal reprodujo a la perfección la relación matemática entre las dos escalas, con un valor de R² aproximado a 1 y errores insignificantes. Esto confirma la adecuación del enfoque, dada la linealidad inherente del problema.
+
+Las predicciones realizadas por el modelo se corresponden exactamente con la conversión tradicional, evidenciando la correcta captura de la relación matemática a través del proceso de aprendizaje automático.
+
+## 4. Conclusiones
+
+El trabajo demuestra que, aunque el problema tratado es sencillo y bien conocido, la aplicación de herramientas de machine learning sirve como ejercicio pedagógico para comprender conceptos de regresión, evaluación y validación de modelos. El uso de bibliotecas modernas facilita la experimentación y visualización de resultados, promoviendo el aprendizaje activo y la replicabilidad del proceso.
+
+La documentación íntegra en Jupyter Notebook garantiza la transparencia metodológica y permite la revisión por parte de la comunidad académica.
+
+## 5. Recomendaciones
+
+- Ampliar la metodología para abordar relaciones no lineales, con el fin de explorar los límites y aplicaciones prácticas de los modelos empleados.
+- Introducir ruido o errores a los datos para analizar la robustez y capacidad de generalización del modelo ante situaciones realistas.
+- Considerar el uso de otros algoritmos de regresión y comparar su desempeño en escenarios más complejos.
+
+---
+
+**Repositorio:** [rubenov02/CelciusFarengeiEntrenamiento](https://github.com/rubenov02/CelciusFarengeiEntrenamiento)
